@@ -194,8 +194,8 @@ export const SpaceCarousel: React.FC = () => {
             aria-label={`Ver ${space.name}`}
             className={`transition-all duration-300 rounded-full h-2.5 ${
               currentIndex === idx
-                ? 'w-8 bg-gradient-to-r from-pink-400 via-sky-400 to-purple-400 shadow-md shadow-pink-300/50 scale-105'
-                : 'w-2.5 bg-slate-200 hover:bg-slate-300'
+                ? 'w-8 bg-gradient-to-r from-rose-500 via-pink-500 to-amber-400 shadow-md shadow-amber-400/40 scale-105'
+                : 'w-2.5 bg-slate-200 hover:bg-amber-200'
             }`}
           />
         ))}
@@ -212,8 +212,8 @@ export const SpaceCarousel: React.FC = () => {
             }}
             className={`shrink-0 text-xs px-3.5 py-1.5 rounded-full transition-all duration-300 font-semibold ${
               currentIndex === idx
-                ? 'bg-gradient-to-r from-pink-500 to-rose-400 text-white shadow-md shadow-pink-400/30 scale-105'
-                : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80 shadow-xs hover:border-slate-300'
+                ? 'bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 text-white shadow-md shadow-rose-400/30 scale-105 border-t border-amber-200/50'
+                : 'bg-white text-slate-600 hover:text-amber-800 border border-slate-200/80 shadow-xs hover:border-amber-300'
             }`}
           >
             {space.name}

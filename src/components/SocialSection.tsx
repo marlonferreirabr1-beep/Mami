@@ -10,8 +10,8 @@ export const SocialSection: React.FC = () => {
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
       {/* Editorial Header */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-pink-50 via-slate-50 to-purple-50 border border-slate-200/60 shadow-2xs text-xs font-semibold text-slate-700 mb-3.5">
-          <Sparkles className="w-3.5 h-3.5 text-pink-500" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-50 via-amber-50 to-rose-50 border border-amber-200/80 shadow-2xs text-xs font-semibold text-amber-950 mb-3.5">
+          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
           <span className="tracking-wide">Comunicação Direta</span>
         </div>
         <h3 className="text-2xl sm:text-3xl font-display font-medium text-slate-900 tracking-tight">

@@ -8,7 +8,7 @@ interface TeamMember {
   role: string;
   council: string;
   registration: string;
-  accent: 'pink' | 'blue' | 'purple';
+  accent: 'rose' | 'gold' | 'rosegold';
   postImg: string;
   originalUrl: string;
 }
@@ -20,7 +20,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: 'Fisioterapeuta',
     council: 'CREFITO',
     registration: '407325-F',
-    accent: 'pink',
+    accent: 'rose',
     postImg: '/team/post_0.png',
     originalUrl: 'https://i.postimg.cc/s20kX9w5/Screenshot-20260929-163108-Instagram.png',
   },
@@ -30,7 +30,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: 'Psicólogo',
     council: 'CRP',
     registration: '15/4271',
-    accent: 'blue',
+    accent: 'gold',
     postImg: '/team/post_1.png',
     originalUrl: 'https://i.postimg.cc/X70TpvcL/Screenshot-20260929-163110-Instagram.png',
   },
@@ -40,7 +40,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: 'Neuropsicólogo',
     council: 'CRP',
     registration: '15/3759',
-    accent: 'purple',
+    accent: 'rosegold',
     postImg: '/team/post_2.png',
     originalUrl: 'https://i.postimg.cc/y8L5QyqP/Screenshot-20260929-163114-Instagram.png',
   },
@@ -50,7 +50,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: 'Psicólogo',
     council: 'CRP',
     registration: '15/8120',
-    accent: 'pink',
+    accent: 'rose',
     postImg: '/team/post_3.png',
     originalUrl: 'https://i.postimg.cc/qR357fND/Screenshot-20260929-163117-Instagram.png',
   },
@@ -60,7 +60,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: 'Psicóloga',
     council: 'CRP',
     registration: '15/7444',
-    accent: 'blue',
+    accent: 'gold',
     postImg: '/team/post_4.png',
     originalUrl: 'https://i.postimg.cc/T2nsM6MK/Screenshot-20260929-163120-Instagram.png',
   },
@@ -68,34 +68,34 @@ const TEAM_MEMBERS: TeamMember[] = [
 
 const getAccentStyle = (accent: TeamMember['accent']) => {
   switch (accent) {
-    case 'pink':
+    case 'rose':
       return {
-        badgeBg: 'bg-gradient-to-tr from-pink-400 to-rose-300 text-white shadow-pink-300/40',
-        cardBorder: 'hover:border-pink-300',
-        glow: 'from-pink-100/40 to-transparent',
-        btnBg: 'bg-pink-50 hover:bg-pink-500 text-pink-700 hover:text-white border-pink-200 hover:border-pink-500',
+        badgeBg: 'bg-gradient-to-tr from-rose-500 to-pink-400 text-white shadow-rose-300/40',
+        cardBorder: 'hover:border-rose-300',
+        glow: 'from-rose-100/40 to-transparent',
+        btnBg: 'bg-rose-50 hover:bg-rose-500 text-rose-700 hover:text-white border-rose-200 hover:border-rose-500',
         ringGlow: 'group-hover:shadow-[0_12px_28px_-6px_rgba(244,114,182,0.3)]',
-        tagBg: 'bg-pink-50 text-pink-700 border-pink-200/80',
+        tagBg: 'bg-rose-50 text-rose-700 border-rose-200/80',
       };
-    case 'blue':
+    case 'gold':
       return {
-        badgeBg: 'bg-gradient-to-tr from-sky-400 to-cyan-300 text-white shadow-sky-300/40',
-        cardBorder: 'hover:border-sky-300',
-        glow: 'from-sky-100/40 to-transparent',
-        dot: 'bg-sky-400',
-        btnBg: 'bg-sky-50 hover:bg-sky-500 text-sky-700 hover:text-white border-sky-200 hover:border-sky-500',
-        ringGlow: 'group-hover:shadow-[0_12px_28px_-6px_rgba(56,189,248,0.3)]',
-        tagBg: 'bg-sky-50 text-sky-700 border-sky-200/80',
+        badgeBg: 'bg-gradient-to-tr from-amber-500 to-yellow-400 text-white shadow-amber-300/40',
+        cardBorder: 'hover:border-amber-300',
+        glow: 'from-amber-100/40 to-transparent',
+        dot: 'bg-amber-400',
+        btnBg: 'bg-amber-50 hover:bg-amber-500 text-amber-800 hover:text-white border-amber-200 hover:border-amber-500',
+        ringGlow: 'group-hover:shadow-[0_12px_28px_-6px_rgba(245,158,11,0.3)]',
+        tagBg: 'bg-amber-50 text-amber-800 border-amber-200/80',
       };
-    case 'purple':
+    case 'rosegold':
       return {
-        badgeBg: 'bg-gradient-to-tr from-purple-400 to-indigo-300 text-white shadow-purple-300/40',
-        cardBorder: 'hover:border-purple-300',
-        glow: 'from-purple-100/40 to-transparent',
-        dot: 'bg-purple-400',
-        btnBg: 'bg-purple-50 hover:bg-purple-500 text-purple-700 hover:text-white border-purple-200 hover:border-purple-500',
-        ringGlow: 'group-hover:shadow-[0_12px_28px_-6px_rgba(192,132,252,0.3)]',
-        tagBg: 'bg-purple-50 text-purple-700 border-purple-200/80',
+        badgeBg: 'bg-gradient-to-tr from-rose-400 to-amber-400 text-white shadow-amber-300/40',
+        cardBorder: 'hover:border-amber-300',
+        glow: 'from-rose-50/40 to-amber-50/20',
+        dot: 'bg-rose-400',
+        btnBg: 'bg-rose-50/60 hover:bg-gradient-to-r hover:from-rose-500 hover:to-amber-500 text-amber-900 hover:text-white border-amber-200 hover:border-transparent',
+        ringGlow: 'group-hover:shadow-[0_12px_28px_-6px_rgba(217,119,6,0.3)]',
+        tagBg: 'bg-rose-50/70 text-amber-900 border-amber-200/80',
       };
   }
 };
@@ -106,8 +106,8 @@ export const TeamSection: React.FC = () => {
   return (
     <div className="w-full max-w-xl mx-auto">
       <div className="text-center mb-9">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-pink-50 via-slate-50 to-sky-50 border border-slate-200/60 shadow-2xs text-xs font-semibold text-slate-700 mb-3.5">
-          <ShieldCheck className="w-3.5 h-3.5 text-pink-500" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-50 via-amber-50 to-rose-50 border border-amber-200/80 shadow-2xs text-xs font-semibold text-amber-950 mb-3.5">
+          <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
           <span className="tracking-wide">Profissionais Habilitados</span>
         </div>
         <h3 className="text-2xl sm:text-3xl font-display font-medium text-slate-900 tracking-tight">

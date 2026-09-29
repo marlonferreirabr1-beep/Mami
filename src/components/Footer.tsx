@@ -8,9 +8,9 @@ export const Footer: React.FC = () => {
   const mapsUrl = 'https://maps.app.goo.gl/wPJXZXymML1Yq6Rm9?g_st=ac';
 
   return (
-    <footer className="w-full border-t border-slate-200/70 bg-[#f7f9fc] pt-14 pb-16 px-4 relative overflow-hidden">
-      {/* Top Iridescent Line (Pink, Baby Blue, Lilac) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-[2px] bg-gradient-to-r from-transparent via-pink-400 via-sky-400 via-purple-400 to-transparent opacity-80" />
+    <footer className="w-full border-t border-amber-100/70 bg-[#f8fafc] pt-14 pb-16 px-4 relative overflow-hidden">
+      {/* Top Iridescent Line (Rosa Premium & Dourado Imperial) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-[2px] bg-gradient-to-r from-transparent via-rose-400 via-amber-300 to-transparent opacity-90 shadow-[0_1px_8px_rgba(245,158,11,0.3)]" />
 
       <div className="max-w-xl mx-auto flex flex-col items-center text-center">
         {/* Logo */}
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
             className="flex flex-col items-center gap-1.5 group transform-gpu hover:scale-105 transition-transform"
           >
             <Instagram3DIcon size={42} />
-            <span className="text-[10px] font-bold text-slate-500 group-hover:text-pink-600 transition-colors">
+            <span className="text-[10px] font-bold text-slate-500 group-hover:text-rose-600 transition-colors">
               Instagram
             </span>
           </a>
@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
             className="flex flex-col items-center gap-1.5 group transform-gpu hover:scale-105 transition-transform"
           >
             <GoogleMaps3DIcon size={42} />
-            <span className="text-[10px] font-bold text-slate-500 group-hover:text-sky-600 transition-colors">
+            <span className="text-[10px] font-bold text-slate-500 group-hover:text-amber-600 transition-colors">
               Localização
             </span>
           </a>
@@ -82,8 +82,8 @@ export const Footer: React.FC = () => {
           </a>
         </div>
 
-        {/* Delicate pastel hairline separator */}
-        <div className="w-20 h-[3px] rounded-full bg-gradient-to-r from-pink-300 via-sky-300 to-purple-300 mt-9 mb-4 shadow-sm" />
+        {/* Delicate gold & rose hairline separator */}
+        <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-rose-400 via-amber-300 to-rose-400 mt-9 mb-4 shadow-[0_1px_6px_rgba(245,158,11,0.25)]" />
 
         {/* Copyright */}
         <p className="text-[11px] text-slate-400 font-normal">
