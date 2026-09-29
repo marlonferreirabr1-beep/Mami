@@ -1,0 +1,8 @@
+{
+  "name": "Clínica Mami — Bio Site",
+  "description": "Um espaço de cuidado, escuta e acolhimento. Conheça a Clínica Mami, nosso corpo clínico e agende seu atendimento.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

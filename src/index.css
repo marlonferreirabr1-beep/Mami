@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f7f9fc;
+    color: #1e293b;
+    overflow-x: hidden;
+  }
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 3D Glass & Emboss Effects */
+.badge-3d-base {
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
+}
+
+.badge-3d-base:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.badge-3d-base:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* Shimmer Light Sweeping Animation for 3D elements */
+@keyframes lightSheen {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+  40%, 100% {
+    transform: translateX(250%) skewX(-25deg);
+  }
+}
+
+.animate-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-sheen::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.75) 50%,
+    rgba(255, 255, 255, 0) 70%,
+    transparent 100%
+  );
+  animation: lightSheen 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* 3D Card Glassmorphism with Iridescent Pastel Borders */
+.card-3d-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 20px 45px -15px rgba(200, 215, 235, 0.55),
+    0 10px 20px -10px rgba(244, 114, 182, 0.12),
+    0 4px 12px -2px rgba(56, 189, 248, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 1),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-3d-glass:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    0 28px 55px -15px rgba(186, 230, 253, 0.5),
+    0 14px 28px -10px rgba(244, 114, 182, 0.22),
+    0 8px 18px -4px rgba(192, 132, 252, 0.2),
+    inset 0 1px 3px rgba(255, 255, 255, 1);
+}
+
+/* Floating Slow Animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.8deg);
+  }
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}
+
+/* Ambient Pulse Glow */
+@keyframes auraPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+.animate-aura {
+  animation: auraPulse 7s ease-in-out infinite;
+}
+
+/* Iridescent Gradient Border */
+.iridescent-border {
+  position: relative;
+}
+.iridescent-border::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.5), rgba(56, 189, 248, 0.5), rgba(192, 132, 252, 0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
