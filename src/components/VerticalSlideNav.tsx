@@ -7,10 +7,10 @@ interface SectionItem {
 
 const SECTIONS: SectionItem[] = [
   { id: 'secao-abertura', label: 'Início' },
+  { id: 'secao-espaco', label: 'Espaço' },
   { id: 'secao-conheca', label: 'Sobre' },
   { id: 'secao-servicos', label: 'Serviços' },
   { id: 'secao-convenios', label: 'Convênios' },
-  { id: 'secao-espaco', label: 'Espaço' },
   { id: 'secao-equipe', label: 'Equipe' },
   { id: 'secao-localizacao', label: 'Local' },
   { id: 'secao-redes', label: 'Redes' },

@@ -58,14 +58,14 @@ export default function App() {
       />
 
       {/* Top Bar Contract (Single-row, 3-zone architecture with 3D glass) */}
-      <header className="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-xl border-b border-slate-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-colors">
+      <header className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-2xl border-b border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.03)] transition-colors">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
           {/* Zone 1: Single text element wordmark with 3D glint */}
           <a
             href="#secao-abertura"
             className="text-base sm:text-lg font-display font-bold tracking-tight text-slate-900 flex items-center gap-2.5 hover:opacity-90 transition-opacity group"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-pink-400 to-rose-300 shadow-sm shadow-pink-400/50 group-hover:scale-125 transition-transform" />
+            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-pink-500 to-rose-400 shadow-sm shadow-pink-400/50 group-hover:scale-125 transition-transform" />
             <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
               Clínica Mami
             </span>
@@ -74,13 +74,13 @@ export default function App() {
           {/* Zone 2: 4-6 clean text navigation links (Desktop) */}
           <nav className="hidden md:flex items-center gap-5 text-xs sm:text-sm font-semibold text-slate-600">
             <a href="#secao-abertura" className="hover:text-pink-600 transition-colors">Início</a>
+            <a href="#secao-espaco" className="hover:text-purple-600 transition-colors">Nosso Espaço</a>
             <a href="#secao-conheca" className="hover:text-sky-600 transition-colors">Sobre</a>
-            <a href="#secao-servicos" className="hover:text-purple-600 transition-colors">Serviços</a>
-            <a href="#secao-convenios" className="hover:text-pink-600 transition-colors">Convênios</a>
-            <a href="#secao-espaco" className="hover:text-sky-600 transition-colors">Nosso Espaço</a>
+            <a href="#secao-servicos" className="hover:text-pink-600 transition-colors">Serviços</a>
+            <a href="#secao-convenios" className="hover:text-sky-600 transition-colors">Convênios</a>
             <a href="#secao-equipe" className="hover:text-purple-600 transition-colors">Corpo Clínico</a>
             <a href="#secao-localizacao" className="hover:text-sky-600 transition-colors">Onde Estamos</a>
-            <a href="#secao-redes" className="hover:text-purple-600 transition-colors">Contato</a>
+            <a href="#secao-redes" className="hover:text-pink-600 transition-colors">Contato</a>
           </nav>
 
           {/* Zone 3: 1-2 primary actions (3D Shimmer CTA) */}
@@ -89,7 +89,7 @@ export default function App() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group overflow-hidden inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-700 text-white text-xs font-bold tracking-wide shadow-md shadow-slate-900/15 hover:shadow-lg transition-all duration-200 active:scale-95 whitespace-nowrap"
+              className="relative group overflow-hidden inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 hover:from-slate-800 hover:to-slate-700 text-white text-xs font-bold tracking-wide shadow-md shadow-slate-900/15 hover:shadow-lg transition-all duration-200 active:scale-95 whitespace-nowrap"
             >
               <div className="absolute inset-0 animate-sheen pointer-events-none opacity-40" />
               <Calendar className="w-3.5 h-3.5 text-pink-400" />
@@ -114,10 +114,35 @@ export default function App() {
 
         {/* Delicate Cinematic Divider */}
         <div className="w-full flex justify-center py-2">
+          <div className="w-32 h-[2px] rounded-full bg-gradient-to-r from-transparent via-purple-300 via-pink-300 to-transparent shadow-xs" />
+        </div>
+
+        {/* SEÇÃO 2: NOSSO ESPAÇO COM IMAGENS (NO TOPO) */}
+        <CinematicSection
+          id="secao-espaco"
+          className="min-h-[90dvh] flex flex-col items-center justify-center py-16 sm:py-24 px-4 sm:px-6"
+        >
+          <div className="w-full max-w-xl text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-50 via-slate-50 to-sky-50 border border-slate-200/60 shadow-2xs text-xs font-semibold text-slate-700 mb-3.5">
+              <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+              <span className="tracking-wide">Infraestrutura Acolhedora</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-display font-medium text-slate-900 tracking-tight">
+              Nosso Espaço
+            </h3>
+            <p className="text-sm font-medium text-slate-500 mt-1.5 max-w-md mx-auto leading-relaxed">
+              Ambientes preparados com conforto, acolhimento, acessibilidade e privacidade
+            </p>
+          </div>
+          <SpaceCarousel />
+        </CinematicSection>
+
+        {/* Delicate Cinematic Divider */}
+        <div className="w-full flex justify-center py-2">
           <div className="w-32 h-[2px] rounded-full bg-gradient-to-r from-transparent via-pink-300 via-sky-300 to-transparent shadow-xs" />
         </div>
 
-        {/* SEÇÃO 2: CONHEÇA A CLÍNICA */}
+        {/* SEÇÃO 3: CONHEÇA A CLÍNICA */}
         <CinematicSection
           id="secao-conheca"
           className="min-h-[85dvh] flex flex-col items-center justify-center py-16 sm:py-24 px-4 sm:px-6"
@@ -149,27 +174,6 @@ export default function App() {
           className="min-h-[80dvh] flex flex-col items-center justify-center py-16 sm:py-24 px-4 sm:px-6"
         >
           <InsuranceSection />
-        </CinematicSection>
-
-        {/* Delicate Cinematic Divider */}
-        <div className="w-full flex justify-center py-2">
-          <div className="w-32 h-[2px] rounded-full bg-gradient-to-r from-transparent via-purple-300 via-pink-300 to-transparent shadow-xs" />
-        </div>
-
-        {/* SEÇÃO 3: NOSSO ESPAÇO */}
-        <CinematicSection
-          id="secao-espaco"
-          className="min-h-[90dvh] flex flex-col items-center justify-center py-16 sm:py-24 px-4 sm:px-6"
-        >
-          <div className="w-full max-w-xl text-center mb-7">
-            <h3 className="text-2xl sm:text-3xl font-display font-medium text-slate-800 tracking-tight">
-              Nosso espaço
-            </h3>
-            <p className="text-sm font-medium text-slate-500 mt-1">
-              Ambientes preparados com conforto, acolhimento e privacidade
-            </p>
-          </div>
-          <SpaceCarousel />
         </CinematicSection>
 
         {/* Delicate Cinematic Divider */}

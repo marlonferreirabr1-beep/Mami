@@ -1,19 +1,38 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Receipt, MessageCircle, HelpCircle } from 'lucide-react';
+import { ShieldCheck, Receipt, MessageCircle, HelpCircle, Sparkles } from 'lucide-react';
 import { WhatsApp3DIcon } from './icons3D.tsx';
+import {
+  UnimedLogo,
+  BradescoSaudeLogo,
+  AmilLogo,
+  SulAmericaLogo,
+  CassiLogo,
+  GeapLogo,
+  PostalSaudeLogo,
+  AssefazLogo,
+  CapesespLogo,
+  BacenLogo,
+} from './InsuranceLogos.tsx';
 
-const CONVENIOS = [
-  'Unimed',
-  'Bradesco Saúde',
-  'Amil',
-  'SulAmérica',
-  'Cassi',
-  'Geap Saúde',
-  'Postal Saúde',
-  'Assefaz',
-  'Capesesp',
-  'Bacen',
+interface InsuranceItem {
+  id: string;
+  name: string;
+  LogoComponent: React.ComponentType<{ className?: string; height?: number }>;
+  tag: string;
+}
+
+const INSURANCE_LIST: InsuranceItem[] = [
+  { id: 'unimed', name: 'Unimed', LogoComponent: UnimedLogo, tag: 'Rede Credenciada' },
+  { id: 'bradesco', name: 'Bradesco Saúde', LogoComponent: BradescoSaudeLogo, tag: 'Rede Credenciada' },
+  { id: 'amil', name: 'Amil', LogoComponent: AmilLogo, tag: 'Rede Credenciada' },
+  { id: 'sulamerica', name: 'SulAmérica', LogoComponent: SulAmericaLogo, tag: 'Rede Credenciada' },
+  { id: 'cassi', name: 'Cassi', LogoComponent: CassiLogo, tag: 'Banco do Brasil' },
+  { id: 'geap', name: 'Geap Saúde', LogoComponent: GeapLogo, tag: 'Autogestão' },
+  { id: 'postal', name: 'Postal Saúde', LogoComponent: PostalSaudeLogo, tag: 'Correios' },
+  { id: 'assefaz', name: 'Assefaz', LogoComponent: AssefazLogo, tag: 'Fundação' },
+  { id: 'capesesp', name: 'Capesesp', LogoComponent: CapesespLogo, tag: 'Previdência & Saúde' },
+  { id: 'bacen', name: 'Bacen PASBC', LogoComponent: BacenLogo, tag: 'Banco Central' },
 ];
 
 export const InsuranceSection: React.FC = () => {
@@ -21,78 +40,109 @@ export const InsuranceSection: React.FC = () => {
 
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
-      <div className="text-center mb-8">
-        <h3 className="text-2xl sm:text-3xl font-display font-medium text-slate-800 tracking-tight">
+      {/* Premium Header with Editorial Subtitle */}
+      <div className="text-center mb-9">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-sky-50 via-slate-50 to-pink-50 border border-slate-200/60 shadow-xs text-xs font-semibold text-slate-700 mb-3.5">
+          <ShieldCheck className="w-3.5 h-3.5 text-sky-500" />
+          <span className="tracking-wide">Cobertura e Facilidade</span>
+        </div>
+        <h3 className="text-2xl sm:text-3xl font-display font-medium text-slate-900 tracking-tight">
           Convênios Atendidos
         </h3>
-        <p className="text-sm font-medium text-slate-500 mt-1">
-          Consulte as condições para o seu plano
+        <p className="text-sm font-medium text-slate-500 mt-1.5 max-w-md mx-auto leading-relaxed">
+          Atendimento dedicado através dos principais planos de saúde do país
         </p>
       </div>
 
-      {/* Convênios Badges Grid */}
-      <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
-        {CONVENIOS.map((name, idx) => (
-          <motion.div
-            key={name}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.35, delay: idx * 0.04 }}
-            className="group p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-100 shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-md transition-all duration-300 flex items-center gap-2.5 transform-gpu hover:-translate-y-0.5 hover:border-sky-200"
-          >
-            <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-sky-400 to-cyan-300 shadow-xs group-hover:scale-125 transition-transform" />
-            <span className="text-xs sm:text-sm font-bold text-slate-700 group-hover:text-slate-900 transition-colors">
-              {name}
-            </span>
-          </motion.div>
-        ))}
+      {/* Grid de Convênios com as Logos Reais Oficiais */}
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        {INSURANCE_LIST.map((item, idx) => {
+          const Logo = item.LogoComponent;
+          return (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.04 }}
+              className="group relative bg-white/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-[0_4px_16px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.06)] hover:border-slate-300 transition-all duration-300 flex items-center justify-between gap-3 overflow-hidden transform-gpu hover:-translate-y-0.5"
+            >
+              {/* Subtle Ambient Sheen */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-50/50 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              {/* Logo Oficial Real */}
+              <div className="relative z-10 flex items-center min-w-0 h-10">
+                <Logo height={28} className="max-w-[155px] object-contain transition-transform duration-300 group-hover:scale-105" />
+              </div>
+
+              {/* Micro Status Badge */}
+              <div className="relative z-10 shrink-0">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-slate-50 text-slate-600 border border-slate-200/70 group-hover:border-sky-300 group-hover:text-sky-700 group-hover:bg-sky-50 transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  {item.tag}
+                </span>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* Special Card: Particular com Reembolso */}
+      {/* Cartão de Destaque Luxo: Particular com Reembolso */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="w-full mt-4 p-5 rounded-3xl bg-gradient-to-r from-pink-50/90 via-purple-50/70 to-sky-50/90 border border-pink-200/70 shadow-sm relative overflow-hidden"
+        className="w-full mt-5 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-white via-pink-50/40 to-purple-50/30 border border-pink-200/80 shadow-[0_10px_30px_rgba(244,114,182,0.08)] relative overflow-hidden group"
       >
-        <div className="flex items-start gap-3.5">
-          <div className="w-10 h-10 rounded-2xl bg-white text-pink-600 shadow-sm flex items-center justify-center shrink-0 border border-pink-100">
-            <Receipt className="w-5 h-5" />
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-300/20 to-purple-300/10 rounded-full blur-2xl pointer-events-none" />
+
+        <div className="flex items-start gap-4 relative z-10">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-pink-500 to-rose-400 text-white shadow-md shadow-pink-500/25 flex items-center justify-center shrink-0 border border-white/60 group-hover:scale-105 transition-transform">
+            <Receipt className="w-6 h-6 stroke-[2.2]" />
           </div>
-          <div>
-            <h4 className="text-sm font-bold text-slate-800 tracking-tight flex items-center gap-2">
-              <span>Particular com reembolso</span>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-pink-100 text-pink-700">
-                Disponível
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h4 className="text-base font-bold text-slate-900 tracking-tight">
+                Atendimento Particular com Reembolso
+              </h4>
+              <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-700 tracking-wide uppercase">
+                100% Assistido
               </span>
-            </h4>
-            <p className="text-xs text-slate-600 mt-1 leading-relaxed font-normal">
-              Atendemos particular e emitimos toda a documentação necessária para você solicitar reembolso junto ao seu plano de saúde.
+            </div>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed font-normal">
+              Caso seu plano não esteja na lista ou opere por livre escolha, emitimos toda a documentação, laudos e recibos médicos necessários para você solicitar o reembolso integral ou parcial junto à sua operadora.
             </p>
           </div>
         </div>
       </motion.div>
 
-      {/* Inquiry CTA */}
-      <div className="mt-7 w-full p-4 rounded-2xl bg-white/80 border border-slate-100 text-center flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
-        <div className="text-left flex items-center gap-2.5">
-          <HelpCircle className="w-5 h-5 text-sky-500 shrink-0" />
-          <span className="text-xs font-medium text-slate-600">
-            Ficou com alguma dúvida sobre a cobertura do seu plano?
-          </span>
+      {/* Concierge Call to Action */}
+      <div className="mt-7 w-full p-4 sm:p-5 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200/70 text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+        <div className="text-left flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-100">
+            <HelpCircle className="w-5 h-5" />
+          </div>
+          <div>
+            <p className="text-xs sm:text-sm font-bold text-slate-800 tracking-tight">
+              Dúvidas sobre o seu convênio?
+            </p>
+            <p className="text-[11px] sm:text-xs text-slate-500 font-normal">
+              Nossa equipe orienta você sobre autorizações e procedimentos.
+            </p>
+          </div>
         </div>
+
         <a
           href={`${whatsappUrl}?text=${encodeURIComponent(
-            'Olá! Gostaria de tirar dúvidas sobre a cobertura do meu plano de saúde na Clínica Mami.'
+            'Olá! Gostaria de consultar as condições do meu plano de saúde na Clínica Mami.'
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold shadow-md shadow-emerald-500/20 active:scale-95 transition-all"
+          className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold shadow-md shadow-emerald-500/25 active:scale-95 transition-all w-full sm:w-auto justify-center"
         >
-          <WhatsApp3DIcon size={22} showGleam={false} />
-          <span>Falar no WhatsApp</span>
+          <WhatsApp3DIcon size={20} showGleam={false} />
+          <span>Consultar Cobertura</span>
         </a>
       </div>
     </div>
