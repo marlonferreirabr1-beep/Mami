@@ -11,12 +11,12 @@ interface DaySchedule {
 }
 
 const WEEKLY_SCHEDULE: DaySchedule[] = [
-  { dayName: 'Segunda-feira', shortName: 'Seg', dayIndex: 1, hours: '07:00 – 17:30', isOpenDay: true },
-  { dayName: 'Terça-feira', shortName: 'Ter', dayIndex: 2, hours: '07:00 – 17:30', isOpenDay: true },
-  { dayName: 'Quarta-feira', shortName: 'Qua', dayIndex: 3, hours: '07:00 – 17:30', isOpenDay: true },
-  { dayName: 'Quinta-feira', shortName: 'Qui', dayIndex: 4, hours: '07:00 – 17:30', isOpenDay: true },
-  { dayName: 'Sexta-feira', shortName: 'Sex', dayIndex: 5, hours: '07:00 – 17:30', isOpenDay: true },
-  { dayName: 'Sábado', shortName: 'Sáb', dayIndex: 6, hours: 'Fechado', isOpenDay: false },
+  { dayName: 'Segunda-feira', shortName: 'Seg', dayIndex: 1, hours: '07:00 – 20:00', isOpenDay: true },
+  { dayName: 'Terça-feira', shortName: 'Ter', dayIndex: 2, hours: '07:00 – 20:00', isOpenDay: true },
+  { dayName: 'Quarta-feira', shortName: 'Qua', dayIndex: 3, hours: '07:00 – 20:00', isOpenDay: true },
+  { dayName: 'Quinta-feira', shortName: 'Qui', dayIndex: 4, hours: '07:00 – 20:00', isOpenDay: true },
+  { dayName: 'Sexta-feira', shortName: 'Sex', dayIndex: 5, hours: '07:00 – 20:00', isOpenDay: true },
+  { dayName: 'Sábado', shortName: 'Sáb', dayIndex: 6, hours: '08:00 – 12:00', isOpenDay: true },
   { dayName: 'Domingo', shortName: 'Dom', dayIndex: 0, hours: 'Fechado', isOpenDay: false },
 ];
 
@@ -39,35 +39,60 @@ export function getClinicCurrentStatus(): {
   const minutes = maceioDate.getMinutes();
   const currentTime = hours * 60 + minutes;
 
-  const openTime = 7 * 60; // 07:00
-  const closeTime = 17 * 60 + 30; // 17:30
+  // Dias de semana (Segunda a Sexta): 07:00 às 20:00
+  const openTimeWeekday = 7 * 60; // 07:00
+  const closeTimeWeekday = 20 * 60; // 20:00
+
+  // Sábado: 08:00 às 12:00
+  const openTimeSaturday = 8 * 60; // 08:00
+  const closeTimeSaturday = 12 * 60; // 12:00
 
   const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
+  const isSaturday = dayOfWeek === 6;
 
-  if (isWeekday && currentTime >= openTime && currentTime < closeTime) {
+  // 1. Verificação se está aberto agora em dia de semana
+  if (isWeekday && currentTime >= openTimeWeekday && currentTime < closeTimeWeekday) {
     return {
       isOpen: true,
       statusText: 'Aberto agora',
-      subText: 'Fecha hoje às 17:30',
+      subText: 'Fecha hoje às 20:00',
       currentDayIndex: dayOfWeek,
     };
   }
 
-  // Se estiver fechado, calcular quando abre exatamente como no Google Maps
+  // 2. Verificação se está aberto agora no sábado
+  if (isSaturday && currentTime >= openTimeSaturday && currentTime < closeTimeSaturday) {
+    return {
+      isOpen: true,
+      statusText: 'Aberto agora',
+      subText: 'Fecha hoje às 12:00',
+      currentDayIndex: dayOfWeek,
+    };
+  }
+
+  // 3. Se estiver fechado no momento, informar com exatidão quando abre
   let subText = 'Abre seg. às 07:00';
 
   if (isWeekday) {
-    if (currentTime < openTime) {
+    if (currentTime < openTimeWeekday) {
       subText = 'Abre hoje às 07:00';
     } else if (dayOfWeek < 5) {
-      // Segunda a quinta após 17:30
+      // De segunda a quinta após as 20:00
       subText = 'Abre amanhã às 07:00';
     } else {
-      // Sexta após 17:30
+      // Sexta-feira após as 20:00 -> abre sábado às 08:00
+      subText = 'Abre sáb. às 08:00';
+    }
+  } else if (isSaturday) {
+    if (currentTime < openTimeSaturday) {
+      // Sábado de manhã antes das 08:00
+      subText = 'Abre hoje às 08:00';
+    } else {
+      // Sábado após as 12:00 -> domingo fechado, abre seg às 07:00
       subText = 'Abre seg. às 07:00';
     }
   } else {
-    // Sábado ou Domingo
+    // Domingo -> abre segunda às 07:00
     subText = 'Abre seg. às 07:00';
   }
 
