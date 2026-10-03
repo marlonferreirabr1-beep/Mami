@@ -139,32 +139,37 @@ export const ServicesSection: React.FC = () => {
           return (
             <motion.div
               key={srv.id}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: idx * 0.05 }}
-              className={`group relative bg-white/95 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_4px_16px_rgba(217,119,6,0.03)] hover:shadow-[0_12px_28px_rgba(217,119,6,0.08)] transition-all duration-300 ${style.cardBorder} flex items-start gap-4 overflow-hidden transform-gpu hover:-translate-y-0.5`}
+              initial={{ opacity: 0, y: 24, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              className={`group relative bg-white/95 backdrop-blur-2xl rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-[0_10px_28px_-6px_rgba(0,0,0,0.05),0_4px_12px_rgba(217,119,6,0.04)] hover:shadow-[0_20px_45px_-8px_rgba(217,119,6,0.14)] transition-all duration-300 ${style.cardBorder} flex items-start gap-4 overflow-hidden transform-gpu hover:-translate-y-1 hover:scale-[1.01]`}
             >
+              {/* Top Bevel Glint */}
+              <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
+
               {/* Subtle Ambient Glow */}
               <div
                 className={`absolute inset-0 bg-gradient-to-r ${style.glow} pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
               />
 
-              {/* 3D Icon Avatar */}
+              {/* 3D Glossy Icon Avatar */}
               <div
-                className={`w-12 h-12 rounded-2xl ${style.iconBg} flex items-center justify-center shrink-0 shadow-md border border-white/60 group-hover:scale-105 transition-transform duration-300 relative z-10`}
+                className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl ${style.iconBg} flex items-center justify-center shrink-0 shadow-lg border border-white/80 group-hover:scale-110 transition-transform duration-300 relative z-10 overflow-hidden`}
               >
-                <srv.icon className="w-6 h-6 stroke-[2.2]" />
+                {/* Convex Dome Specular Highlight */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-black/10 pointer-events-none" />
+                <srv.icon className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.3] relative z-10 drop-shadow-md" />
               </div>
 
               {/* Text Info */}
               <div className="flex-1 min-w-0 relative z-10">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    <span className={`font-mono text-xs font-bold ${style.numberColor}`}>
+                    <span className={`font-mono text-xs font-bold ${style.numberColor} drop-shadow-xs`}>
                       {srv.number}
                     </span>
-                    <h4 className="text-base font-bold text-slate-800 tracking-tight">
+                    <h4 className="text-base font-bold text-slate-800 tracking-tight group-hover:text-slate-900 transition-colors">
                       {srv.title}
                     </h4>
                   </div>
@@ -174,7 +179,7 @@ export const ServicesSection: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Agendar esta especialidade"
-                    className="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                    className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 hover:text-white bg-slate-100/80 hover:bg-gradient-to-r hover:from-rose-500 hover:to-amber-500 transition-all duration-200 shadow-2xs hover:shadow-md transform-gpu hover:scale-105"
                   >
                     <span className="hidden sm:inline">Agendar</span>
                     <ArrowRight className="w-3.5 h-3.5" />

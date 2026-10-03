@@ -9,12 +9,12 @@ interface CinematicSectionProps {
 }
 
 /**
- * Cinematic Motion Wrapper for sections
- * Provides Apple/A24-grade camera reveals on scroll:
- * - Fluid opacity fade
- * - Smooth vertical rise (y: 40 -> 0)
- * - Subtle 3D perspective tilt (rotateX: 4deg -> 0deg)
- * - Scale settling (scale: 0.96 -> 1.0)
+ * Cinematic Motion Wrapper for Sections
+ * Efeito Motion com aspecto cinematográfico ao rolar a página:
+ * - 3D Perspective Camera Entrance (rotateX 6deg -> 0deg)
+ * - Fluid Y Translation (y 55 -> 0)
+ * - Cinematic Scale Expansion (scale 0.94 -> 1.0)
+ * - Soft Parallax Ambient Aura
  */
 export const CinematicSection: React.FC<CinematicSectionProps> = ({
   id,
@@ -25,15 +25,19 @@ export const CinematicSection: React.FC<CinematicSectionProps> = ({
   return (
     <section id={id} className={`relative w-full ${className}`}>
       <motion.div
-        initial={{ opacity: 0, y: 48, scale: 0.95, rotateX: 4 }}
+        initial={{ opacity: 0, y: 55, scale: 0.94, rotateX: 6 }}
         whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-        viewport={{ once: false, amount: 0.22 }}
+        viewport={{ once: true, amount: 0.12 }}
         transition={{
-          duration: 0.85,
+          duration: 0.88,
           delay,
-          ease: [0.16, 1, 0.3, 1], // Cinematic smooth curve
+          ease: [0.16, 1, 0.3, 1], // Curva cinematográfica premium (Apple/Hollywood)
         }}
-        style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
+        style={{
+          transformStyle: 'preserve-3d',
+          perspective: 1200,
+          willChange: 'transform, opacity',
+        }}
         className="w-full flex flex-col items-center"
       >
         {children}

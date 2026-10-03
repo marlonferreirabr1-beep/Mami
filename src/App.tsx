@@ -21,6 +21,7 @@ import { Footer } from './components/Footer.tsx';
 import { VerticalSlideNav } from './components/VerticalSlideNav.tsx';
 import { CinematicBackground } from './components/CinematicBackground.tsx';
 import { CinematicSection } from './components/CinematicSection.tsx';
+import { LiveStatusBadge } from './components/OpeningHoursCard.tsx';
 
 export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -83,8 +84,16 @@ export default function App() {
             <a href="#secao-redes" className="hover:text-amber-600 transition-colors">Contato</a>
           </nav>
 
-          {/* Zone 3: 1-2 primary actions (3D Shimmer CTA) */}
+          {/* Zone 3: 1-2 primary actions (3D Shimmer CTA & Live Hours Badge) */}
           <div className="flex items-center gap-2.5">
+            <a
+              href="#secao-localizacao"
+              title="Ver horários de funcionamento"
+              className="hidden sm:inline-flex transform-gpu hover:scale-105 transition-transform"
+            >
+              <LiveStatusBadge />
+            </a>
+
             <a
               href={whatsappUrl}
               target="_blank"

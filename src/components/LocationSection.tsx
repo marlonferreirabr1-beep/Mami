@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink, Compass, MapPin, Navigation } from 'lucide-react';
 import { GoogleMaps3DIcon } from './icons3D.tsx';
+import { OpeningHoursCard } from './OpeningHoursCard.tsx';
 
 export const LocationSection: React.FC = () => {
   const mapsUrl = 'https://maps.app.goo.gl/wPJXZXymML1Yq6Rm9?g_st=ac';
@@ -102,6 +103,11 @@ export const LocationSection: React.FC = () => {
             </div>
           </a>
         </div>
+      </div>
+
+      {/* Card de Horários de Funcionamento (Fiel ao Google Maps) */}
+      <div className="w-full mt-5">
+        <OpeningHoursCard />
       </div>
     </div>
   );

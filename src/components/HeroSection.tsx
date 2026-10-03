@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Calendar, MessageCircle, ArrowDown, Sparkles, CheckCircle2, ShieldCheck, Heart } from 'lucide-react';
 import { WhatsApp3DIcon, Instagram3DIcon } from './icons3D.tsx';
+import { LiveStatusBadge } from './OpeningHoursCard.tsx';
 
 interface HeroSectionProps {
   onOpenContact?: () => void;
@@ -93,6 +94,22 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
             <span className="text-sm">📌</span> Humanizado
           </span>
         </div>
+      </motion.div>
+
+      {/* Balãozinho Dinâmico de Funcionamento (Aberto Agora / Fechado) */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.32 }}
+        className="mb-8"
+      >
+        <LiveStatusBadge
+          onClick={() => {
+            const el = document.getElementById('secao-localizacao');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="cursor-pointer"
+        />
       </motion.div>
 
       {/* Two Master Action Buttons with Gold & Premium Rose Depth */}

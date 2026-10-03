@@ -1,22 +1,22 @@
 import React from 'react';
-import { Heart, Sparkles, Smile, Shield, CheckCircle2, Award } from 'lucide-react';
+import { Heart, Sparkles, Smile, Shield } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
-      {/* Main Luxury Glass Card with Gold & Premium Rose Accents */}
-      <div className="w-full bg-white/95 backdrop-blur-2xl rounded-3xl p-7 sm:p-10 text-center relative overflow-hidden border border-amber-100/80 shadow-[0_16px_40px_rgba(217,119,6,0.04)] group">
-        {/* Top Metallic Ribbon (Rosa Premium & Dourado Real) */}
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-rose-500 via-amber-400 to-rose-500" />
+      {/* Main 3D Luxury Glass Card with Gold, Rose & Purple Accents */}
+      <div className="w-full bg-white/95 backdrop-blur-2xl rounded-3xl p-7 sm:p-10 text-center relative overflow-hidden border border-amber-200/90 shadow-[0_20px_50px_-10px_rgba(217,119,6,0.1),0_10px_25px_-5px_rgba(244,114,182,0.12),inset_0_1px_3px_rgba(255,255,255,1)] group transform-gpu hover:shadow-[0_28px_60px_-10px_rgba(217,119,6,0.16)] transition-all duration-500">
+        {/* Top Metallic Ribbon (Dourado -> Rosa -> Roxo) */}
+        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-400 via-rose-500 to-purple-600 shadow-sm" />
 
-        {/* Small 3D Floating Pill Label */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-50 via-amber-50 to-rose-50 border border-amber-200/80 shadow-2xs text-xs font-semibold text-amber-950 mb-6">
+        {/* 3D Floating Pill Label */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-rose-50 via-amber-50 to-purple-50 border border-amber-200/90 shadow-[0_4px_14px_rgba(217,119,6,0.08)] text-xs font-semibold text-amber-950 mb-6 transform-gpu hover:scale-105 transition-transform">
           <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-spin" style={{ animationDuration: '8s' }} />
-          <span>Conheça a Clínica Mami · Saúde & Bem-Estar</span>
+          <span className="font-bold">Conheça a Clínica Mami · Saúde & Bem-Estar</span>
         </div>
 
         {/* Mandatory Heading with Editorial Elegance */}
-        <h3 className="text-2xl sm:text-3xl font-display font-medium text-slate-900 tracking-tight leading-snug">
+        <h3 className="text-2xl sm:text-3xl font-display font-medium text-slate-900 tracking-tight leading-snug drop-shadow-xs">
           “Um espaço pensado para cuidar de você.”
         </h3>
 
@@ -30,46 +30,49 @@ export const AboutSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Official Highlights from Clinic Profile */}
-        <div className="mt-7 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-50/50 via-white to-rose-50/50 border border-amber-100 flex flex-col gap-2.5 text-left shadow-2xs">
+        {/* 3D Highlights Box */}
+        <div className="mt-7 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-50/60 via-white to-rose-50/60 border border-amber-200/80 flex flex-col gap-2.5 text-left shadow-[0_4px_16px_rgba(217,119,6,0.05)]">
           <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-700 font-medium">
-            <span className="w-6 h-6 rounded-lg bg-rose-100/90 text-rose-700 flex items-center justify-center text-sm shrink-0">👶</span>
+            <span className="w-7 h-7 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-400 text-white flex items-center justify-center text-sm shrink-0 shadow-md shadow-rose-400/30">👶</span>
             <span>Cuidado e acolhimento para o desenvolvimento do seu filho</span>
           </div>
           <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-700 font-medium">
-            <span className="w-6 h-6 rounded-lg bg-amber-100/90 text-amber-800 flex items-center justify-center text-sm shrink-0">🧠</span>
+            <span className="w-7 h-7 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white flex items-center justify-center text-sm shrink-0 shadow-md shadow-amber-400/30">🧠</span>
             <span>Equipe multidisciplinar especializada e integrada</span>
           </div>
           <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-700 font-medium">
-            <span className="w-6 h-6 rounded-lg bg-rose-100/90 text-rose-700 flex items-center justify-center text-sm shrink-0">📌</span>
+            <span className="w-7 h-7 rounded-xl bg-gradient-to-tr from-purple-500 to-violet-400 text-white flex items-center justify-center text-sm shrink-0 shadow-md shadow-purple-400/30">📌</span>
             <span>Atendimento humanizado em ambiente seguro e acolhedor</span>
           </div>
         </div>
 
-        {/* 3 Pillars of Care with Gold & Premium Rose Details */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-8 pt-7 border-t border-amber-100/60">
+        {/* 3 Pillars of Care with 3D Glossy Relief */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-8 pt-7 border-t border-amber-100">
           {/* Pillar 1: Rosa Premium */}
-          <div className="relative group/card flex flex-col items-center p-4 rounded-2xl bg-gradient-to-b from-rose-50/70 to-white border border-rose-200/80 shadow-[0_4px_16px_rgba(244,114,182,0.12)] hover:shadow-[0_8px_24px_rgba(244,114,182,0.22)] transition-all duration-300 transform-gpu hover:-translate-y-0.5">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-400 text-white shadow-md shadow-rose-400/25 flex items-center justify-center mb-2.5 group-hover/card:scale-105 transition-transform">
-              <Heart className="w-5 h-5 fill-white/20 stroke-[2.5]" />
+          <div className="relative group/card flex flex-col items-center p-4 rounded-2xl bg-gradient-to-b from-rose-50/80 to-white border border-rose-200/90 shadow-[0_8px_20px_rgba(244,114,182,0.18)] hover:shadow-[0_14px_30px_rgba(244,114,182,0.3)] transition-all duration-300 transform-gpu hover:-translate-y-1">
+            <div className="relative w-13 h-13 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-400 text-white shadow-[0_8px_20px_rgba(244,114,182,0.5)] flex items-center justify-center mb-2.5 group-hover/card:scale-110 transition-transform overflow-hidden border border-white/60">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/45 via-transparent to-transparent pointer-events-none" />
+              <Heart className="w-6 h-6 fill-white/20 stroke-[2.5] relative z-10" />
             </div>
             <h4 className="text-xs font-bold text-slate-800 tracking-tight">Acolhimento</h4>
             <p className="text-[11px] text-slate-500 mt-1 font-normal">Escuta sensível e afeto</p>
           </div>
 
           {/* Pillar 2: Dourado Real */}
-          <div className="relative group/card flex flex-col items-center p-4 rounded-2xl bg-gradient-to-b from-amber-50/70 to-white border border-amber-200/80 shadow-[0_4px_16px_rgba(245,158,11,0.12)] hover:shadow-[0_8px_24px_rgba(245,158,11,0.22)] transition-all duration-300 transform-gpu hover:-translate-y-0.5">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white shadow-md shadow-amber-400/25 flex items-center justify-center mb-2.5 group-hover/card:scale-105 transition-transform">
-              <Smile className="w-5 h-5 stroke-[2.5]" />
+          <div className="relative group/card flex flex-col items-center p-4 rounded-2xl bg-gradient-to-b from-amber-50/80 to-white border border-amber-200/90 shadow-[0_8px_20px_rgba(245,158,11,0.18)] hover:shadow-[0_14px_30px_rgba(245,158,11,0.3)] transition-all duration-300 transform-gpu hover:-translate-y-1">
+            <div className="relative w-13 h-13 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white shadow-[0_8px_20px_rgba(245,158,11,0.5)] flex items-center justify-center mb-2.5 group-hover/card:scale-110 transition-transform overflow-hidden border border-white/60">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/45 via-transparent to-transparent pointer-events-none" />
+              <Smile className="w-6 h-6 stroke-[2.5] relative z-10" />
             </div>
             <h4 className="text-xs font-bold text-slate-800 tracking-tight">Tranquilidade</h4>
             <p className="text-[11px] text-slate-500 mt-1 font-normal">Ambiente calmo e seguro</p>
           </div>
 
-          {/* Pillar 3: Ouro Rosé */}
-          <div className="relative group/card flex flex-col items-center p-4 rounded-2xl bg-gradient-to-b from-rose-50/50 to-white border border-amber-200/80 shadow-[0_4px_16px_rgba(217,119,6,0.1)] hover:shadow-[0_8px_24px_rgba(217,119,6,0.18)] transition-all duration-300 transform-gpu hover:-translate-y-0.5">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-400 to-amber-400 text-white shadow-md shadow-amber-400/25 flex items-center justify-center mb-2.5 group-hover/card:scale-105 transition-transform">
-              <Shield className="w-5 h-5 stroke-[2.5]" />
+          {/* Pillar 3: Roxo & Ouro Rosé */}
+          <div className="relative group/card flex flex-col items-center p-4 rounded-2xl bg-gradient-to-b from-purple-50/80 to-white border border-purple-200/90 shadow-[0_8px_20px_rgba(168,85,247,0.18)] hover:shadow-[0_14px_30px_rgba(168,85,247,0.3)] transition-all duration-300 transform-gpu hover:-translate-y-1">
+            <div className="relative w-13 h-13 rounded-2xl bg-gradient-to-tr from-purple-500 via-fuchsia-500 to-amber-400 text-white shadow-[0_8px_20px_rgba(168,85,247,0.5)] flex items-center justify-center mb-2.5 group-hover/card:scale-110 transition-transform overflow-hidden border border-white/60">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/45 via-transparent to-transparent pointer-events-none" />
+              <Shield className="w-6 h-6 stroke-[2.5] relative z-10" />
             </div>
             <h4 className="text-xs font-bold text-slate-800 tracking-tight">Confiança</h4>
             <p className="text-[11px] text-slate-500 mt-1 font-normal">Profissionalismo e ética</p>
