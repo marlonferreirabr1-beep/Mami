@@ -5,146 +5,143 @@ export const CinematicBackground: React.FC = () => {
   const { scrollY } = useScroll();
 
   // Parallax scroll transforms for background depth
-  const yGold1 = useTransform(scrollY, [0, 4000], [0, -320]);
-  const yRose1 = useTransform(scrollY, [0, 4000], [0, 360]);
-  const yPurple1 = useTransform(scrollY, [0, 4000], [0, -220]);
-  const yGold2 = useTransform(scrollY, [0, 4000], [0, 280]);
-  const yPurple2 = useTransform(scrollY, [0, 4000], [0, -380]);
-  const rotateOrbs = useTransform(scrollY, [0, 4000], [0, 60]);
-  const rotateReverse = useTransform(scrollY, [0, 4000], [0, -60]);
+  const yChampagne1 = useTransform(scrollY, [0, 4000], [0, -260]);
+  const ySand1 = useTransform(scrollY, [0, 4000], [0, 280]);
+  const yTaupe1 = useTransform(scrollY, [0, 4000], [0, -180]);
+  const yChampagne2 = useTransform(scrollY, [0, 4000], [0, 220]);
+  const yTaupe2 = useTransform(scrollY, [0, 4000], [0, -300]);
+  const rotateOrbs = useTransform(scrollY, [0, 4000], [0, 45]);
+  const rotateReverse = useTransform(scrollY, [0, 4000], [0, -45]);
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden -z-20 select-none">
-      {/* 1. Base Límpida em Branco Gelo Puro (Ice White) */}
-      <div className="absolute inset-0 bg-[#f8fafc]" />
+      {/* 1. Base Bege Quente, Suave e Sofisticado (Inspirado em Taupe/Areia Claro #AF987F) */}
+      <div className="absolute inset-0 bg-[#F4EFEA] bg-gradient-to-b from-[#F7F4F0] via-[#F2ECE4] to-[#ECE5DC]" />
 
-      {/* 2. Malha de Iluminação Laranja/Dourado, Rosa e Roxo (Grande Escala) */}
+      {/* 2. Nuances Sutis de Dourado Champanhe e Bege Areia / Taupe Suave */}
 
-      {/* Topo / Hero: Foco Rosa Vibrante & Dourado */}
+      {/* Topo / Hero: Brilho Suave de Dourado Champanhe & Areia Aveludada */}
       <motion.div
-        style={{ y: yRose1, rotate: rotateOrbs }}
-        className="absolute -top-32 left-[10%] w-[680px] h-[550px] rounded-full bg-gradient-to-tr from-rose-300/50 via-pink-200/40 to-transparent blur-[95px] opacity-80 animate-aura"
+        style={{ y: yChampagne1, rotate: rotateOrbs }}
+        className="absolute -top-32 left-[12%] w-[720px] h-[560px] rounded-full bg-gradient-to-tr from-[#EEDDC4]/40 via-[#F5ECE0]/30 to-transparent blur-[120px] opacity-75 animate-aura"
       />
       <motion.div
-        style={{ y: yGold1, rotate: rotateReverse }}
-        className="absolute -top-20 right-[5%] w-[620px] h-[520px] rounded-full bg-gradient-to-bl from-amber-300/50 via-yellow-200/40 to-transparent blur-[90px] opacity-85 animate-float"
+        style={{ y: ySand1, rotate: rotateReverse }}
+        className="absolute -top-24 right-[8%] w-[640px] h-[520px] rounded-full bg-gradient-to-bl from-[#E8D4B0]/35 via-[#F1E5D5]/30 to-transparent blur-[110px] opacity-80 animate-float"
       />
 
-      {/* Região Superior/Média (Espaço & Sobre): Roxo Imperial & Ouro Rosé */}
+      {/* Região Superior/Média (Espaço & Sobre): Nuance Taupe Claro (#AF987F) e Ouro Champanhe */}
       <motion.div
-        style={{ y: yPurple1 }}
-        className="absolute top-[20%] -left-32 w-[640px] h-[640px] rounded-full bg-gradient-to-br from-purple-400/45 via-violet-300/35 to-fuchsia-200/20 blur-[105px] opacity-85 animate-float-reverse"
-      />
-      <motion.div
-        style={{ y: yGold2 }}
-        className="absolute top-[35%] -right-28 w-[580px] h-[580px] rounded-full bg-gradient-to-tl from-amber-300/45 via-rose-200/35 to-transparent blur-[100px] opacity-80 animate-float"
-      />
-
-      {/* Região Média (Serviços & Convênios): Fusão Roxo & Rosa */}
-      <motion.div
-        style={{ y: yPurple2 }}
-        className="absolute top-[52%] left-1/2 -translate-x-1/2 w-[720px] h-[600px] rounded-full bg-gradient-to-r from-purple-400/35 via-rose-300/35 to-amber-200/30 blur-[115px] opacity-75 animate-aura"
+        style={{ y: yTaupe1 }}
+        className="absolute top-[22%] -left-32 w-[650px] h-[650px] rounded-full bg-gradient-to-br from-[#AF987F]/15 via-[#DFCDB9]/25 to-transparent blur-[130px] opacity-80 animate-float-reverse"
       />
       <motion.div
-        style={{ y: yRose1 }}
-        className="absolute top-[62%] -right-36 w-[620px] h-[620px] rounded-full bg-gradient-to-l from-rose-400/40 via-purple-300/30 to-transparent blur-[100px] opacity-80 animate-float"
+        style={{ y: yChampagne2 }}
+        className="absolute top-[36%] -right-28 w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-[#EADBBE]/30 via-[#F3EBE0]/25 to-transparent blur-[120px] opacity-75 animate-float"
       />
 
-      {/* Região Inferior (Equipe, Localização & Contato): Dourado Quente & Roxo */}
+      {/* Região Média (Serviços & Convênios): Fusão Champanhe Suave e Areia Quente */}
       <motion.div
-        style={{ y: yGold1 }}
-        className="absolute bottom-[18%] -left-28 w-[620px] h-[620px] rounded-full bg-gradient-to-tr from-amber-300/45 via-yellow-200/35 to-transparent blur-[100px] opacity-85 animate-float-reverse"
+        style={{ y: yTaupe2 }}
+        className="absolute top-[52%] left-1/2 -translate-x-1/2 w-[740px] h-[620px] rounded-full bg-gradient-to-r from-[#AF987F]/12 via-[#E8D8BF]/25 to-[#F4EFEA]/30 blur-[135px] opacity-75 animate-aura"
       />
       <motion.div
-        style={{ y: yPurple1 }}
-        className="absolute bottom-5 right-[10%] w-[680px] h-[580px] rounded-full bg-gradient-to-tl from-purple-500/40 via-rose-300/35 to-transparent blur-[110px] opacity-80 animate-aura"
+        style={{ y: ySand1 }}
+        className="absolute top-[64%] -right-36 w-[620px] h-[620px] rounded-full bg-gradient-to-l from-[#E6D5B8]/30 via-[#EFE6D9]/25 to-transparent blur-[120px] opacity-75 animate-float"
       />
 
-      {/* 3. Detalhes Decorativos Flutuantes em Dourado, Rosa e Roxo */}
+      {/* Região Inferior (Equipe, Localização & Contato): Toque Aconchegante Champanhe */}
+      <motion.div
+        style={{ y: yChampagne1 }}
+        className="absolute bottom-[18%] -left-28 w-[620px] h-[620px] rounded-full bg-gradient-to-tr from-[#DFC7A2]/25 via-[#EFE7DC]/30 to-transparent blur-[120px] opacity-80 animate-float-reverse"
+      />
+      <motion.div
+        style={{ y: yTaupe1 }}
+        className="absolute bottom-5 right-[10%] w-[680px] h-[580px] rounded-full bg-gradient-to-tl from-[#AF987F]/15 via-[#EBDCC2]/25 to-transparent blur-[130px] opacity-75 animate-aura"
+      />
 
-      {/* Anel Dourado Flutuante no Topo Esquerdo */}
-      <div className="absolute top-[12%] left-[4%] w-32 h-32 rounded-full border-[1.5px] border-amber-300/40 shadow-[0_0_25px_rgba(245,158,11,0.2)] blur-[0.5px] animate-float" />
-      <div className="absolute top-[13.5%] left-[5.5%] w-20 h-20 rounded-full border border-amber-200/30 animate-pulse" />
+      {/* 3. Detalhes Decorativos Flutuantes Extremamente Discretos em Dourado Champanhe */}
 
-      {/* Anel Roxo Flutuante no Centro-Direito */}
-      <div className="absolute top-[28%] right-[6%] w-40 h-40 rounded-full border-[1.5px] border-purple-400/40 shadow-[0_0_30px_rgba(168,85,247,0.25)] blur-[0.5px] animate-float-reverse" />
-      <div className="absolute top-[30%] right-[8%] w-24 h-24 rounded-full border border-purple-300/30 animate-pulse" />
+      {/* Anel Champanhe no Topo Esquerdo */}
+      <div className="absolute top-[12%] left-[4%] w-32 h-32 rounded-full border-[1.5px] border-[#DFC9A0]/25 shadow-[0_0_25px_rgba(223,201,160,0.15)] blur-[0.5px] animate-float" />
+      <div className="absolute top-[13.5%] left-[5.5%] w-20 h-20 rounded-full border border-[#EBDCC2]/20 animate-pulse" />
 
-      {/* Anel Rosa Flutuante no Meio-Esquerdo */}
-      <div className="absolute top-[48%] left-[3%] w-36 h-36 rounded-full border-[1.5px] border-rose-400/40 shadow-[0_0_25px_rgba(244,114,182,0.25)] blur-[0.5px] animate-float" />
+      {/* Anel Champanhe no Centro-Direito */}
+      <div className="absolute top-[28%] right-[6%] w-40 h-40 rounded-full border-[1.5px] border-[#DFC9A0]/25 shadow-[0_0_30px_rgba(223,201,160,0.15)] blur-[0.5px] animate-float-reverse" />
+      <div className="absolute top-[30%] right-[8%] w-24 h-24 rounded-full border border-[#EBDCC2]/20 animate-pulse" />
 
-      {/* Anel Dourado e Roxo na Região Inferior */}
-      <div className="absolute top-[68%] right-[5%] w-32 h-32 rounded-full border-[1.5px] border-amber-400/40 shadow-[0_0_25px_rgba(245,158,11,0.2)] animate-float-reverse" />
-      <div className="absolute top-[82%] left-[6%] w-44 h-44 rounded-full border-[1.5px] border-purple-400/35 shadow-[0_0_30px_rgba(168,85,247,0.2)] animate-float" />
+      {/* Anel Champanhe no Meio-Esquerdo */}
+      <div className="absolute top-[48%] left-[3%] w-36 h-36 rounded-full border-[1.5px] border-[#AF987F]/20 shadow-[0_0_25px_rgba(175,152,127,0.1)] blur-[0.5px] animate-float" />
 
-      {/* 4. Partículas e Estrelas de Luz (Dourado, Rosa e Roxo) */}
-      {/* Estrela Dourada Topo */}
-      <svg className="absolute top-[8%] right-[14%] w-6 h-6 text-amber-400/70 animate-pulse drop-shadow-[0_0_8px_rgba(245,158,11,0.6)]" viewBox="0 0 24 24" fill="currentColor">
+      {/* Anéis Champanhe na Região Inferior */}
+      <div className="absolute top-[68%] right-[5%] w-32 h-32 rounded-full border-[1.5px] border-[#DFC9A0]/25 shadow-[0_0_25px_rgba(223,201,160,0.15)] animate-float-reverse" />
+      <div className="absolute top-[82%] left-[6%] w-44 h-44 rounded-full border-[1.5px] border-[#AF987F]/20 shadow-[0_0_30px_rgba(175,152,127,0.1)] animate-float" />
+
+      {/* 4. Estrelas de Luz Muito Discretas em Dourado Champanhe */}
+      {/* Estrela Champanhe Topo */}
+      <svg className="absolute top-[8%] right-[14%] w-5 h-5 text-[#D4AF37]/45 animate-pulse drop-shadow-[0_0_6px_rgba(212,175,55,0.4)]" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
       </svg>
 
-      {/* Estrela Rosa Esquerda */}
-      <svg className="absolute top-[22%] left-[12%] w-5 h-5 text-rose-400/75 animate-bounce drop-shadow-[0_0_8px_rgba(244,114,182,0.6)]" style={{ animationDuration: '6s' }} viewBox="0 0 24 24" fill="currentColor">
+      {/* Estrela Champanhe Esquerda */}
+      <svg className="absolute top-[22%] left-[12%] w-4 h-4 text-[#E2CCA2]/50 animate-bounce drop-shadow-[0_0_6px_rgba(226,204,162,0.4)]" style={{ animationDuration: '6s' }} viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
       </svg>
 
-      {/* Estrela Roxa Meio */}
-      <svg className="absolute top-[42%] right-[10%] w-7 h-7 text-purple-400/75 animate-pulse drop-shadow-[0_0_10px_rgba(168,85,247,0.6)]" viewBox="0 0 24 24" fill="currentColor">
+      {/* Estrela Champanhe Meio */}
+      <svg className="absolute top-[42%] right-[10%] w-5 h-5 text-[#D4AF37]/40 animate-pulse drop-shadow-[0_0_6px_rgba(212,175,55,0.35)]" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
       </svg>
 
-      {/* Estrela Dourada Centro-Esquerda */}
-      <svg className="absolute top-[60%] left-[8%] w-6 h-6 text-amber-400/70 animate-float drop-shadow-[0_0_8px_rgba(245,158,11,0.6)]" viewBox="0 0 24 24" fill="currentColor">
+      {/* Estrela Champanhe Centro-Esquerda */}
+      <svg className="absolute top-[60%] left-[8%] w-5 h-5 text-[#E2CCA2]/45 animate-float drop-shadow-[0_0_6px_rgba(226,204,162,0.4)]" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
       </svg>
 
-      {/* Estrela Roxa / Rosa Inferior */}
-      <svg className="absolute top-[75%] right-[12%] w-6 h-6 text-purple-400/75 animate-pulse drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
-      </svg>
-      <svg className="absolute top-[90%] left-[15%] w-5 h-5 text-rose-400/70 animate-float-reverse drop-shadow-[0_0_8px_rgba(244,114,182,0.6)]" viewBox="0 0 24 24" fill="currentColor">
+      {/* Estrela Champanhe Inferior */}
+      <svg className="absolute top-[75%] right-[12%] w-5 h-5 text-[#D4AF37]/40 animate-pulse drop-shadow-[0_0_6px_rgba(212,175,55,0.35)]" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
       </svg>
 
-      {/* 5. Linhas de Ondas Suaves em Degradê Dourado, Rosa e Roxo */}
-      <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+      {/* 5. Linhas de Ondas Suaves em Dourado Champanhe Discreto */}
+      <svg className="absolute inset-0 w-full h-full opacity-15" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="goldRosePurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.4" />
-            <stop offset="50%" stopColor="#F43F5E" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#9333EA" stopOpacity="0.4" />
+          <linearGradient id="champagneSandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.35" />
+            <stop offset="50%" stopColor="#E2CCA2" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="#AF987F" stopOpacity="0.2" />
           </linearGradient>
         </defs>
         <path
           d="M -100 200 C 200 100, 400 350, 800 220 S 1200 400, 1500 280"
           fill="none"
-          stroke="url(#goldRosePurpleGrad)"
-          strokeWidth="1.5"
+          stroke="url(#champagneSandGrad)"
+          strokeWidth="1.2"
           strokeDasharray="4 8"
         />
         <path
           d="M -100 1200 C 300 1350, 500 1100, 900 1250 S 1300 1150, 1600 1300"
           fill="none"
-          stroke="url(#goldRosePurpleGrad)"
-          strokeWidth="1.5"
+          stroke="url(#champagneSandGrad)"
+          strokeWidth="1.2"
           strokeDasharray="6 10"
         />
         <path
           d="M -100 2200 C 250 2100, 600 2300, 950 2150 S 1400 2250, 1600 2100"
           fill="none"
-          stroke="url(#goldRosePurpleGrad)"
-          strokeWidth="1.5"
+          stroke="url(#champagneSandGrad)"
+          strokeWidth="1.2"
           strokeDasharray="4 8"
         />
       </svg>
 
-      {/* 6. Textura Micro-Pontilhada Cristalina */}
+      {/* 6. Textura Micro-Pontilhada em Taupe Areia Suave */}
       <div
-        className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:28px_28px]"
+        className="absolute inset-0 opacity-[0.025] bg-[radial-gradient(#AF987F_1px,transparent_1px)] [background-size:28px_28px]"
       />
 
-      {/* 7. Iluminação de Vinheta Suave nas Bordas */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-100/20 via-transparent to-purple-900/[0.03]" />
+      {/* 7. Iluminação de Vinheta Suave e Quente nas Bordas */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/30 via-transparent to-[#AF987F]/[0.05]" />
     </div>
   );
 };

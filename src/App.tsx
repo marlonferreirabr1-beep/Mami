@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { Calendar, ChevronUp } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
 import { WhatsApp3DIcon } from './components/icons3D.tsx';
 import { HeroSection } from './components/HeroSection.tsx';
 import { AboutSection } from './components/AboutSection.tsx';
@@ -21,7 +21,6 @@ import { Footer } from './components/Footer.tsx';
 import { VerticalSlideNav } from './components/VerticalSlideNav.tsx';
 import { CinematicBackground } from './components/CinematicBackground.tsx';
 import { CinematicSection } from './components/CinematicSection.tsx';
-import { LiveStatusBadge } from './components/OpeningHoursCard.tsx';
 
 export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -48,8 +47,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800 selection:bg-rose-100 selection:text-rose-900 relative antialiased flex flex-col font-sans overflow-x-hidden">
-      {/* Cinematic Ambient Parallax Background with Gold, Rose & Purple Details */}
+    <div className="min-h-screen bg-[#F4EFEA] text-slate-800 selection:bg-amber-100 selection:text-amber-900 relative antialiased flex flex-col font-sans overflow-x-hidden">
+      {/* Cinematic Ambient Parallax Background with Champagne Gold and Warm Sand Nuances */}
       <CinematicBackground />
 
       {/* Cinematic Scroll Progress Bar at the Very Top (Dourado -> Rosa -> Roxo) */}
@@ -83,28 +82,6 @@ export default function App() {
             <a href="#secao-localizacao" className="hover:text-rose-600 transition-colors">Onde Estamos</a>
             <a href="#secao-redes" className="hover:text-amber-600 transition-colors">Contato</a>
           </nav>
-
-          {/* Zone 3: 1-2 primary actions (3D Shimmer CTA & Live Hours Badge) */}
-          <div className="flex items-center gap-2.5">
-            <a
-              href="#secao-localizacao"
-              title="Ver horários de funcionamento"
-              className="hidden sm:inline-flex transform-gpu hover:scale-105 transition-transform"
-            >
-              <LiveStatusBadge />
-            </a>
-
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group overflow-hidden inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 hover:from-slate-800 hover:to-slate-700 text-amber-200 border border-amber-300/30 text-xs font-bold tracking-wide shadow-md shadow-amber-500/10 hover:shadow-lg transition-all duration-200 active:scale-95 whitespace-nowrap"
-            >
-              <div className="absolute inset-0 animate-sheen pointer-events-none opacity-40" />
-              <Calendar className="w-3.5 h-3.5 text-rose-400" />
-              <span>Agendar</span>
-            </a>
-          </div>
         </div>
       </header>
 
@@ -254,17 +231,35 @@ export default function App() {
       {/* RODAPÉ */}
       <Footer />
 
-      {/* Floating Bottom Quick Contact Trigger for Mobile (3D High Relief with Sheen, under 15% sticky cap) */}
+      {/* Floating Bottom Quick Contact Trigger for Mobile */}
       <div className="fixed bottom-4 left-4 right-4 z-30 md:hidden pointer-events-none flex justify-center">
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="pointer-events-auto relative group overflow-hidden flex items-center justify-center gap-3 px-6 py-3.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 text-white font-bold text-xs sm:text-sm shadow-[0_12px_28px_-4px_rgba(16,185,129,0.55)] border-t border-white/40 active:scale-95 transition-all duration-200"
+          className="pointer-events-auto relative group overflow-hidden flex items-center justify-center gap-3 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BA5C] text-white font-bold text-xs sm:text-sm shadow-[0_12px_28px_-4px_rgba(37,211,102,0.55)] border-t border-white/40 active:scale-95 transition-all duration-200"
         >
           <div className="absolute inset-0 animate-sheen pointer-events-none opacity-40" />
-          <WhatsApp3DIcon size={28} showGleam={false} />
-          <span className="relative z-10">Falar pelo WhatsApp</span>
+          <WhatsApp3DIcon size={28} />
+          <span className="relative z-10 font-bold tracking-wide">Falar pelo WhatsApp</span>
+        </a>
+      </div>
+
+      {/* Floating WhatsApp Quick Action on Desktop */}
+      <div className="fixed bottom-6 right-6 z-40 hidden sm:flex items-center">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Falar pelo WhatsApp Oficial"
+          title="Falar pelo WhatsApp Oficial"
+          className="group relative flex items-center gap-3 py-2.5 px-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs shadow-[0_10px_28px_rgba(37,211,102,0.35)] hover:shadow-[0_14px_35px_rgba(37,211,102,0.5)] border border-emerald-200 transition-all duration-300 transform-gpu hover:scale-105 active:scale-95"
+        >
+          <WhatsApp3DIcon size={36} />
+          <div className="flex flex-col text-left">
+            <span className="text-[10px] uppercase font-bold text-emerald-600">WhatsApp</span>
+            <span className="text-xs font-bold text-slate-800 tracking-tight">Atendimento Online</span>
+          </div>
         </a>
       </div>
 
@@ -273,7 +268,7 @@ export default function App() {
         <button
           onClick={scrollToTop}
           aria-label="Voltar ao início"
-          className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-30 w-11 h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 shadow-[0_8px_20px_rgba(0,0,0,0.12)] border border-white flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 group"
+          className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 z-30 w-11 h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 shadow-[0_8px_20px_rgba(0,0,0,0.12)] border border-white flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 group"
         >
           <ChevronUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
         </button>

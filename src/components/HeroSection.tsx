@@ -32,7 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           <span className="relative inline-flex rounded-full h-2 w-2 bg-gradient-to-r from-rose-500 to-amber-500" />
         </span>
         <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-800">
-          Centro de Saúde & Desenvolvimento Integrado
+          Centro de Terapia e Desenvolvimento Humanizado
         </span>
       </motion.div>
 
@@ -131,7 +131,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           <span className="relative z-10 uppercase">AGENDAR ATENDIMENTO</span>
         </a>
 
-        {/* FALE CONOSCO - Porcelain Glass with Gold Rim */}
+        {/* FALE CONOSCO - Porcelain Glass with Gold Rim and Real WhatsApp Logo */}
         <a
           href={whatsappUrl}
           target="_blank"
@@ -139,7 +139,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           className="w-full sm:w-1/2 relative group overflow-hidden py-4 px-6 rounded-2xl bg-white/95 hover:bg-white text-slate-800 font-bold text-xs sm:text-sm tracking-wider shadow-[0_8px_24px_-4px_rgba(217,119,6,0.06),0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_14px_30px_-6px_rgba(245,158,11,0.2)] border border-amber-200/80 active:translate-y-0.5 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2.5"
         >
           <div className="absolute inset-0 animate-sheen pointer-events-none opacity-40" />
-          <MessageCircle className="w-4 h-4 text-emerald-500 stroke-[2.5] relative z-10" />
+          <WhatsApp3DIcon size={20} />
           <span className="relative z-10 uppercase">FALE CONOSCO</span>
         </a>
       </motion.div>

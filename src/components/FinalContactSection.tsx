@@ -31,16 +31,16 @@ export const FinalContactSection: React.FC = () => {
 
       {/* 3D Buttons Stack with High Relief & Sheen */}
       <div className="w-full mt-7 flex flex-col gap-3.5">
-        {/* Main WhatsApp Button */}
+        {/* Main WhatsApp Button with Official WhatsApp Brand */}
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative group overflow-hidden w-full flex items-center justify-center gap-3.5 py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 bg-[length:200%_auto] hover:bg-right text-white font-bold text-sm sm:text-base tracking-wide shadow-[0_12px_28px_-6px_rgba(16,185,129,0.55)] hover:shadow-[0_18px_36px_-6px_rgba(16,185,129,0.7)] border-t border-white/30 active:scale-[0.98] transition-all duration-300 transform-gpu hover:-translate-y-0.5"
+          className="relative group overflow-hidden w-full flex items-center justify-center gap-3.5 py-4 px-6 rounded-2xl bg-[#25D366] hover:bg-[#20BA5C] text-white font-bold text-sm sm:text-base tracking-wide shadow-[0_12px_28px_-6px_rgba(37,211,102,0.55)] hover:shadow-[0_18px_36px_-6px_rgba(37,211,102,0.7)] border-t border-white/30 active:scale-[0.98] transition-all duration-300 transform-gpu hover:-translate-y-0.5"
         >
           <div className="absolute inset-0 animate-sheen pointer-events-none opacity-40" />
-          <WhatsApp3DIcon size={36} />
-          <span className="relative z-10">FALAR PELO WHATSAPP</span>
+          <WhatsApp3DIcon size={32} />
+          <span className="relative z-10 uppercase font-bold tracking-wider">FALAR PELO WHATSAPP</span>
         </a>
 
         {/* Secondary Instagram Button */}
