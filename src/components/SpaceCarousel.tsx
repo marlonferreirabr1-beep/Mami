@@ -11,6 +11,12 @@ interface SpaceItem {
 
 const SPACES: SpaceItem[] = [
   {
+    id: 'fachada',
+    name: 'Fachada & Entrada',
+    description: 'Entrada da Clínica Mami com rampa de acessibilidade, ambiente acolhedor e identificação dos atendimentos especializados.',
+    url: 'https://i.postimg.cc/dVwxy2d6/IMG-20261028-WA0103.jpg',
+  },
+  {
     id: 'recepcao',
     name: 'Recepção',
     description: 'Ambiente de boas-vindas tranquilo, pensado para o conforto e acolhimento desde o primeiro instante.',
@@ -100,41 +106,55 @@ export const SpaceCarousel: React.FC = () => {
   const currentSpace = SPACES[currentIndex];
 
   return (
-    <div className="w-full max-w-xl mx-auto flex flex-col items-center">
+    <div className="w-full max-w-lg mx-auto flex flex-col items-center">
       {/* 3D Gallery Pedestal Frame */}
       <div className="relative w-full p-2.5 sm:p-3 rounded-[32px] bg-gradient-to-b from-white via-white to-slate-50/80 shadow-[0_24px_50px_-12px_rgba(56,189,248,0.22),0_12px_24px_-8px_rgba(244,114,182,0.18)] border border-white">
         {/* Soft Tri-Color Rim Halo */}
         <div className="absolute -inset-1 rounded-[34px] bg-gradient-to-r from-pink-300/30 via-sky-300/30 to-purple-300/30 blur-sm pointer-events-none -z-10" />
 
-        {/* Viewport Frame */}
+        {/* Viewport Frame in Natural 3:4 Aspect Ratio */}
         <div
-          className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-[24px] overflow-hidden bg-slate-100 select-none"
+          className="relative w-full aspect-[3/4] rounded-[24px] overflow-hidden bg-slate-900 select-none flex items-center justify-center shadow-inner"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
           {/* Animated Image Transition with Motion */}
           <AnimatePresence mode="wait" initial={false}>
-            <motion.img
+            <motion.div
               key={currentSpace.id}
-              src={currentSpace.url}
-              alt={currentSpace.name}
-              referrerPolicy="no-referrer"
-              initial={{ opacity: 0, scale: 1.05, x: direction * 40 }}
+              initial={{ opacity: 0, scale: 1.02, x: direction * 40 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
-              exit={{ opacity: 0, scale: 0.96, x: direction * -40 }}
+              exit={{ opacity: 0, scale: 0.98, x: direction * -40 }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
+              className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden"
+            >
+              {/* Blurred atmospheric backdrop to blend softly around margins */}
+              <img
+                src={currentSpace.url}
+                alt=""
+                aria-hidden="true"
+                referrerPolicy="no-referrer"
+                className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110 pointer-events-none"
+              />
+
+              {/* Natural Real Size Photo without any cropping */}
+              <img
+                src={currentSpace.url}
+                alt={currentSpace.name}
+                referrerPolicy="no-referrer"
+                className="relative z-10 w-full h-full object-contain object-center drop-shadow-md select-none"
+              />
+            </motion.div>
           </AnimatePresence>
 
-          {/* Cinematic Scrim */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/20 to-transparent pointer-events-none" />
+          {/* Cinematic Scrim for Text Readability at Bottom */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent pointer-events-none z-10" />
 
           {/* Top 3D Pill Badge */}
-          <div className="absolute top-4 left-4 z-10">
+          <div className="absolute top-4 left-4 z-20">
             <div className="px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-white/80 text-xs font-bold tracking-wide text-slate-800 shadow-md flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-pink-500 animate-ping" />
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
               <span>{currentSpace.name}</span>
             </div>
           </div>
@@ -142,20 +162,20 @@ export const SpaceCarousel: React.FC = () => {
           {/* Fullscreen Expand Action */}
           <button
             onClick={() => setLightboxOpen(true)}
-            title="Ver em tela cheia"
+            title="Ver foto em tamanho real"
             aria-label="Ver foto em tela cheia"
-            className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-white/80 text-slate-700 flex items-center justify-center shadow-md hover:bg-white hover:text-slate-950 hover:scale-110 active:scale-95 transition-all"
+            className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-white/80 text-slate-700 flex items-center justify-center shadow-md hover:bg-white hover:text-slate-950 hover:scale-110 active:scale-95 transition-all"
           >
             <Maximize2 className="w-4 h-4" />
           </button>
 
           {/* Space Info at Bottom */}
-          <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
+          <div className="absolute bottom-4 left-4 right-4 z-20 text-white">
             <div className="flex items-center justify-between">
-              <h4 className="text-lg font-bold tracking-tight drop-shadow-md">
+              <h4 className="text-base sm:text-lg font-bold tracking-tight drop-shadow-md">
                 {currentSpace.name}
               </h4>
-              <span className="text-xs text-white/90 font-mono font-medium px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-sm border border-white/20">
+              <span className="text-xs text-white/90 font-mono font-medium px-2.5 py-0.5 rounded-full bg-black/50 backdrop-blur-sm border border-white/20">
                 {currentIndex + 1} / {SPACES.length}
               </span>
             </div>
@@ -168,14 +188,14 @@ export const SpaceCarousel: React.FC = () => {
           <button
             onClick={prevSlide}
             aria-label="Ambiente anterior"
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.2)] border border-white flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-20 group"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.25)] border border-white flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-20 group"
           >
             <ChevronLeft className="w-5 h-5 -ml-0.5 group-hover:-translate-x-0.5 transition-transform" />
           </button>
           <button
             onClick={nextSlide}
             aria-label="Próximo ambiente"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.2)] border border-white flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-20 group"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-800 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.25)] border border-white flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-20 group"
           >
             <ChevronRight className="w-5 h-5 -mr-0.5 group-hover:translate-x-0.5 transition-transform" />
           </button>

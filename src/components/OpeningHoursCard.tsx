@@ -11,11 +11,11 @@ interface DaySchedule {
 }
 
 const WEEKLY_SCHEDULE: DaySchedule[] = [
-  { dayName: 'Segunda-feira', shortName: 'Seg', dayIndex: 1, hours: '07:00 – 20:00', isOpenDay: true },
-  { dayName: 'Terça-feira', shortName: 'Ter', dayIndex: 2, hours: '07:00 – 20:00', isOpenDay: true },
-  { dayName: 'Quarta-feira', shortName: 'Qua', dayIndex: 3, hours: '07:00 – 20:00', isOpenDay: true },
-  { dayName: 'Quinta-feira', shortName: 'Qui', dayIndex: 4, hours: '07:00 – 20:00', isOpenDay: true },
-  { dayName: 'Sexta-feira', shortName: 'Sex', dayIndex: 5, hours: '07:00 – 20:00', isOpenDay: true },
+  { dayName: 'Segunda-feira', shortName: 'Seg', dayIndex: 1, hours: '08:00 – 20:00', isOpenDay: true },
+  { dayName: 'Terça-feira', shortName: 'Ter', dayIndex: 2, hours: '08:00 – 20:00', isOpenDay: true },
+  { dayName: 'Quarta-feira', shortName: 'Qua', dayIndex: 3, hours: '08:00 – 20:00', isOpenDay: true },
+  { dayName: 'Quinta-feira', shortName: 'Qui', dayIndex: 4, hours: '08:00 – 20:00', isOpenDay: true },
+  { dayName: 'Sexta-feira', shortName: 'Sex', dayIndex: 5, hours: '08:00 – 20:00', isOpenDay: true },
   { dayName: 'Sábado', shortName: 'Sáb', dayIndex: 6, hours: '08:00 – 12:00', isOpenDay: true },
   { dayName: 'Domingo', shortName: 'Dom', dayIndex: 0, hours: 'Fechado', isOpenDay: false },
 ];
@@ -39,8 +39,8 @@ export function getClinicCurrentStatus(): {
   const minutes = maceioDate.getMinutes();
   const currentTime = hours * 60 + minutes;
 
-  // Dias de semana (Segunda a Sexta): 07:00 às 20:00
-  const openTimeWeekday = 7 * 60; // 07:00
+  // Dias de semana (Segunda a Sexta): 08:00 às 20:00
+  const openTimeWeekday = 8 * 60; // 08:00
   const closeTimeWeekday = 20 * 60; // 20:00
 
   // Sábado: 08:00 às 12:00
@@ -71,14 +71,14 @@ export function getClinicCurrentStatus(): {
   }
 
   // 3. Se estiver fechado no momento, informar com exatidão quando abre
-  let subText = 'Abre seg. às 07:00';
+  let subText = 'Abre seg. às 08:00';
 
   if (isWeekday) {
     if (currentTime < openTimeWeekday) {
-      subText = 'Abre hoje às 07:00';
+      subText = 'Abre hoje às 08:00';
     } else if (dayOfWeek < 5) {
       // De segunda a quinta após as 20:00
-      subText = 'Abre amanhã às 07:00';
+      subText = 'Abre amanhã às 08:00';
     } else {
       // Sexta-feira após as 20:00 -> abre sábado às 08:00
       subText = 'Abre sáb. às 08:00';
@@ -88,12 +88,12 @@ export function getClinicCurrentStatus(): {
       // Sábado de manhã antes das 08:00
       subText = 'Abre hoje às 08:00';
     } else {
-      // Sábado após as 12:00 -> domingo fechado, abre seg às 07:00
-      subText = 'Abre seg. às 07:00';
+      // Sábado após as 12:00 -> domingo fechado, abre seg às 08:00
+      subText = 'Abre seg. às 08:00';
     }
   } else {
-    // Domingo -> abre segunda às 07:00
-    subText = 'Abre seg. às 07:00';
+    // Domingo -> abre segunda às 08:00
+    subText = 'Abre seg. às 08:00';
   }
 
   return {

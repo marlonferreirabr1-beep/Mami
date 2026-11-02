@@ -74,33 +74,11 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
         </div>
       </motion.div>
 
-      {/* Premium Pillars Ribbon Pill */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="mb-8 w-full max-w-md px-2"
-      >
-        <div className="p-3 sm:py-3 sm:px-4 rounded-2xl bg-white/90 backdrop-blur-md border border-amber-100 shadow-[0_4px_16px_rgba(217,119,6,0.04)] flex items-center justify-around gap-2 text-[11px] sm:text-xs font-semibold text-slate-700">
-          <span className="flex items-center gap-1.5">
-            <span className="text-sm">👶</span> Cuidado Infantil
-          </span>
-          <span className="text-amber-300">·</span>
-          <span className="flex items-center gap-1.5">
-            <span className="text-sm">🧠</span> Multidisciplinar
-          </span>
-          <span className="text-amber-300">·</span>
-          <span className="flex items-center gap-1.5">
-            <span className="text-sm">📌</span> Humanizado
-          </span>
-        </div>
-      </motion.div>
-
       {/* Balãozinho Dinâmico de Funcionamento (Aberto Agora / Fechado) */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.32 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
         className="mb-8"
       >
         <LiveStatusBadge
@@ -112,35 +90,23 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
         />
       </motion.div>
 
-      {/* Two Master Action Buttons with Gold & Premium Rose Depth */}
+      {/* Master Action Button */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full flex flex-col sm:flex-row items-center justify-center gap-3.5 px-2"
+        className="w-full flex items-center justify-center px-2"
       >
         {/* AGENDAR ATENDIMENTO - Luxury Rose Gold & Imperial Gold Satin */}
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full sm:w-1/2 relative group overflow-hidden py-4 px-6 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 bg-[length:200%_auto] hover:bg-right text-white font-bold text-xs sm:text-sm tracking-wider shadow-[0_12px_28px_-6px_rgba(244,114,182,0.5),0_4px_12px_rgba(245,158,11,0.25)] hover:shadow-[0_16px_36px_-6px_rgba(217,119,6,0.4)] border-t border-amber-200/50 active:translate-y-0.5 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2.5"
+          className="w-full max-w-md relative group overflow-hidden py-4 px-6 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 bg-[length:200%_auto] hover:bg-right text-white font-bold text-xs sm:text-sm tracking-wider shadow-[0_12px_28px_-6px_rgba(244,114,182,0.5),0_4px_12px_rgba(245,158,11,0.25)] hover:shadow-[0_16px_36px_-6px_rgba(217,119,6,0.4)] border-t border-amber-200/50 active:translate-y-0.5 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2.5"
         >
           <div className="absolute inset-0 animate-sheen pointer-events-none" />
           <Calendar className="w-4 h-4 stroke-[2.5] relative z-10" />
           <span className="relative z-10 uppercase">AGENDAR ATENDIMENTO</span>
-        </a>
-
-        {/* FALE CONOSCO - Porcelain Glass with Gold Rim and Real WhatsApp Logo */}
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full sm:w-1/2 relative group overflow-hidden py-4 px-6 rounded-2xl bg-white/95 hover:bg-white text-slate-800 font-bold text-xs sm:text-sm tracking-wider shadow-[0_8px_24px_-4px_rgba(217,119,6,0.06),0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_14px_30px_-6px_rgba(245,158,11,0.2)] border border-amber-200/80 active:translate-y-0.5 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2.5"
-        >
-          <div className="absolute inset-0 animate-sheen pointer-events-none opacity-40" />
-          <WhatsApp3DIcon size={20} />
-          <span className="relative z-10 uppercase">FALE CONOSCO</span>
         </a>
       </motion.div>
 
